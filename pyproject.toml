@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "signaldecode"
+version = "0.1.0"
+description = "Unified auto-triage and decode pipeline for CTF audio/signal challenges — the audio Aperi'Solve."
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+keywords = ["ctf", "audio", "signal", "morse", "dtmf", "decode", "forensics", "stego"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Topic :: Security",
+    "Topic :: Multimedia :: Sound/Audio :: Analysis",
+]
+dependencies = [
+    "numpy>=1.23",
+    "scipy>=1.9",
+    "matplotlib>=3.6",
+    "soundfile>=0.12",
+]
+
+[project.optional-dependencies]
+extra = ["librosa>=0.10"]
+dev = ["pytest>=7"]
+
+[project.scripts]
+signaldecode = "signaldecode.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/masonzeng702550/signaldecode"
+
+[tool.setuptools.packages.find]
+include = ["signaldecode*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
